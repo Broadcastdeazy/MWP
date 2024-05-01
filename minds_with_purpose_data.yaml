@@ -1,0 +1,83 @@
+openapi: 3.0.0
+info:
+  title: Minds With Purpose Event Optimizer API
+  description: This API simulates interactions with a GPT model trained to enhance marketing strategies for Minds With Purpose LLC. It offers tailored outreach strategies, analyzes customer engagement, and generates content for diverse business needs.
+  version: 1.0.0
+servers:
+  - url: https://api.openai.com/v1/models
+    description: OpenAI API server for model interaction
+paths:
+  /generate_marketing_strategy:
+    post:
+      operationId: generateMarketingStrategy
+      summary: Generates customized marketing strategies
+      description: |
+        Provides tailored marketing strategies based on user-inputted event details or current marketing approaches.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  description: Describe your current marketing strategy or event details.
+                max_tokens:
+                  type: integer
+                  description: Maximum number of tokens to generate.
+                stop:
+                  type: string
+                  description: Sequence where the output generation will stop.
+      responses:
+        '200':
+          description: Successful response with generated marketing strategy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        text:
+                          type: string
+  /analyze_customer_feedback:
+    post:
+      operationId: analyzeCustomerFeedback
+      summary: Analyzes customer feedback to identify engagement triggers
+      description: |
+        Analyzes inputted customer feedback to provide insights into key factors that motivate customer participation and purchase.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  description: Input customer feedback for analysis.
+                max_tokens:
+                  type: integer
+                  description: Maximum number of tokens to generate.
+                stop:
+                  type: string
+                  description: Sequence where the output generation will stop.
+      responses:
+        '200':
+          description: Successful response with analysis of customer feedback
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  choices:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        text:
+                          type: string
