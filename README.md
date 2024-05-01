@@ -17,4 +17,3 @@ To interact with the 'Minds With Purpose Event Optimizer', you can use the provi
    git clone https://github.com/yourusername/minds-with-purpose-event-optimizer.git
 
 
-cd minds-with-purpose-event-optimizer
